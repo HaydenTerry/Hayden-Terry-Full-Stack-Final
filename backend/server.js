@@ -1,6 +1,8 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
+const cors = require('cors');
+app.use(cors());
 const PORT = 3000;
 
 // Database connection pool
