@@ -8,13 +8,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './booking-view.component.css'
 })
 export class BookingViewComponent {
-  @Input() bookingID:Number = 0
-  @Input() roomID:Number = 0
+  @Input() bookingID:String = ""
+  @Input() roomID:String = ""
   @Input() instructor:String = ""
   @Input() eventDetails:String = ""
-  @Input() startTime:Date = new Date()
-  @Input() endTime:Date = new Date()
-  @Input() status:boolean = false
-  @Input() createdAt:Date = new Date()
-  @Input() updatedAt:Date = new Date()
+  @Input() startTime:String = ""
+  @Input() endTime:String = ""
+  @Input() status:String = ""
+  @Input() createdAt:String = ""
+  @Input() updatedAt:String = ""
 }
