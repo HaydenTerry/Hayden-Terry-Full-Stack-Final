@@ -13,7 +13,7 @@ export class LocalAPIService {
   }
 
   async loadData() {
-    let data = fetch("http://localhost:3000/bookings");
+    let data = fetch("http://localhost:3000/booking");
     let result = await (await data).json();
     // console.log(result);
     
