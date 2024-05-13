@@ -4,23 +4,26 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 const PORT = 3000;
+//runs the query to add a new table
+const query = `
+  INSERT INTO \`Bookings\` (\`roomID\`, \`instructor\`, \`eventDetails\`, \`startTime\`, \`endTime\`, \`status\`, \`createdAt\`, \`updatedAt\`) 
+  VALUES ('315', 'MR TEST', 'TEST PROJECT', '2024-05-10 10:30:00', '2024-05-10 11:30:00', '1', '2024-05-10 16:02:20.000000', '2024-05-10 16:02:20.000000');
+`;
 
-// Database connection pool
+//connects to the database
 const pool = mysql.createPool({
-    connectionLimit: 10, // Maximum number of connections in the pool
-    host: 'localhost',   // Host where the MySQL server is running
-    user: 'root',        // MySQL user
-    password: 'GoTechMavs!',        // MySQL password
-    database: 'AirNWKTC',// Database name
-    port: 3306           // Port number if not default (3306 is the default)
+    host: 'localhost', 
+    user: 'root', 
+    password: 'GoTechMavs!', 
+    database: 'AirNWKTC',
+    port: 3306           
 });
 
-// Root endpoint
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// Bookings endpoint to fetch all bookings
+//bookings route to show database info
 app.get('/bookings', (req, res) => {
     pool.query('SELECT * FROM Bookings', (error, results, fields) => {
         if (error) {
@@ -30,19 +33,15 @@ app.get('/bookings', (req, res) => {
     });
 });
 
-// Graceful shutdown: close database pool
-process.on('SIGINT', () => {
-    pool.end(err => {
-        if (err) {
-            console.error('Error closing the database pool:', err.message);
-        } else {
-            console.log('Database pool closed.');
-        }
-        process.exit();
-    });
+ConnectionCloseError.query(query, (error, results, fields) => {
+  if (error) {
+    return console.error(error.message);
+  }
+  console.log('Rows Affected:', results.affectedRows);
 });
 
-// Server listening on specified port
+
+// listening on port 3000
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
