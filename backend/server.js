@@ -44,7 +44,7 @@ app.get('/deleteRoom/:id', (request, response) => {
     if (error) {
       response.send("Failed to delete table")
     }
-    response.send(`room ${id} deleted`)
+    // response.send(`room ${id} deleted`)
    })
 })
 })

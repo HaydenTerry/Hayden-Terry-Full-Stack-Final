@@ -4,6 +4,8 @@
     background-color: rgb(42, 42, 42);
     padding: 0px;
     margin: 0px;
+    box-shadow: 0px 4px 10px -1px rgb(0, 0, 0);
+    padding-left: 1vw;
 }
 
 h1{
@@ -14,5 +16,14 @@ h1{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 1.6vh;
+    font-size:3vw;
+}
 
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 0.8vw;
+    padding: 0px;
+    margin: 0px;
 }

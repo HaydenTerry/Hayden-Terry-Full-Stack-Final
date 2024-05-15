@@ -1,4 +1,6 @@
-@for (bk of api.allBookings; track $index) {
-    <app-booking-view [bookingID]="bk.bookingID" [roomID]="bk.roomID" [instructor]="bk.instructor" [eventDetails]="bk.eventDetails" [startTime]="bk.startTime" [endTime]="bk.endTime" [status]="bk.status" [createdAt]="bk.createdAt" [updatedAt]="bk.createdAt"></app-booking-view>
-}
-
+<div id="bookings">
+    <app-add-room></app-add-room>
+    @for (bk of api.allBookings; track $index) {
+        <app-booking-view [bookingID]="bk.bookingID" [roomID]="bk.roomID" [instructor]="bk.instructor" [eventDetails]="bk.eventDetails" [startTime]="bk.startTime" [endTime]="bk.endTime" [status]="bk.status" [createdAt]="bk.createdAt" [updatedAt]="bk.createdAt"></app-booking-view>
+    }
+</div>

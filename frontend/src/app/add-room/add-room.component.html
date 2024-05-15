@@ -1,0 +1,24 @@
+<div id="addRoom">
+    <div id="data" class="one">
+        <p>Instructor: <input type="text" [(ngModel)]="instructor"></p>
+        <p>Room ID: <input type="text" [(ngModel)]="roomID"></p>
+    </div>
+    <div id="data" class="two">
+        <p>Starts At: <input type="datetime-local" [(ngModel)]="startTime"></p>
+        <p>Ends At: <input type="datetime-local" [(ngModel)]="endTime"></p>
+    </div>
+    <div id="data" class="three">
+        <p>Status: <select name="opt" [(ngModel)]="status">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select></p>
+        <p>Details: <input type="text" [(ngModel)]="eventDetails"></p>
+    </div>
+    <div id="data" class="four">
+        <p>Created At: <input type="datetime-local" [(ngModel)]="createdAt"></p>
+        <p>Last Updated At: <input type="datetime-local" [(ngModel)]="updatedAt"></p>
+    </div>
+    <div id="data" class="five">
+        <button (click)="addRoom()">Add Room</button>
+    </div>
+</div>
