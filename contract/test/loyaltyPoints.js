@@ -26,17 +26,10 @@ describe("LoyaltyPoints", function () {
   });
 
   it("Should only allow the owner to set teacher's name", async function () {
-    try {
-      await loyaltyPoints.connect(addr1).setTeacherName(addr2.address, "Teacher Two");
-    } catch (error) {
-      console.log(error);
-      expect(error.message).to.include("Ownable: caller is not the owner");
-    }
+      expect(loyaltyPoints.connect(addr1).setTeacherName(addr2.address, "Teacher Two")).to.be.reverted 
   });
 
   it("Should only allow the owner to add loyalty points", async function () {
-    await expect(
-      loyaltyPoints.connect(addr1).addLoyaltyPoints(addr2.address, 100)
-    ).to.be.revertedWith("Ownable: caller is not the owner");
+expect(loyaltyPoints.connect(addr1).addLoyaltyPoints(addr2.address, 100)).to.be.revertedWith("Ownable: caller is not the owner");
   });
 });

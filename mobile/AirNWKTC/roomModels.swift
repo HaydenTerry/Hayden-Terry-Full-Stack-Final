@@ -2,12 +2,12 @@ import Foundation
 
 struct Booking: Codable, Identifiable {
     let bookingID: Int
-    let roomID: String
+    let roomID: Int
     let instructor: String
     let eventDetails: String
     let startTime: String
     let endTime: String
-    let status: String
+    let status: Int
     let createdAt: String
     let updatedAt: String
 
