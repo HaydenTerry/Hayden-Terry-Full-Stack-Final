@@ -74,6 +74,21 @@ app.get('/addRoom/:roomID/:instructor/:eventDetails/:startTime/:endTime/:status/
   });
 });
 
+app.get('/updateRoom/:oldRoomID/:newRoomID/:newInstructor/:newEventDetails/:newStatus/:newStartTime/:newEndTime/:newUpdatedAt', (request, response) => {
+  const { oldRoomID, newRoomID, newInstructor, newEventDetails, newStatus, newStartTime, newEndTime, newUpdatedAt} = request.params
+  db.connect((error)=>{
+    if (error) throw error
+    let query = `UPDATE Bookings SET roomID='${newRoomID}',instructor='${newInstructor}',eventDetails='${newEventDetails}',startTime='${newStartTime}',endTime='${newEndTime}',status='${newStatus}', updatedAt='{${newUpdatedAt}}' WHERE roomID = '${oldRoomID}'`
+    let values = [newRoomID, newInstructor, newEventDetails, newStartTime, newEndTime, newStatus, newUpdatedAt, oldRoomID]
+    console.log(query);
+    db.query(query, values, (error, result)=>{
+      if (error) throw error
+      response.send(result)
+    })
+  })
+   
+})
+
 // Listening on port 3000
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

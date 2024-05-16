@@ -1,0 +1,25 @@
+<div id="addRoom"> 
+    <div id="data" class="one">
+        <p>Old Room ID: <input type="text" [(ngModel)]="oldRoomID"></p>
+        <p>New Room ID: <input type="text" [(ngModel)]="newRoomID"></p>
+    </div>
+    <div id="data" class="two">
+        <p>Starts At: <input type="datetime-local" [(ngModel)]="newStartTime"></p>
+        <p>Ends At: <input type="datetime-local" [(ngModel)]="newEndTime"></p>
+    </div>
+    <div id="data" class="three">
+        <p>Instructor: <input type="text" [(ngModel)]="newInstructor"></p>
+        <p>Details: <input type="text" [(ngModel)]="newEventDetails"></p>
+    </div>
+    <div id="data" class="four">
+        <p>Last Updated At: <input type="datetime-local" [(ngModel)]="newUpdatedAt"></p>
+        <p>Status: <select name="opt" [(ngModel)]="newStatus">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select></p>
+    </div>
+    <div id="data" class="five">
+        <button (click)="updateRoom()">Update Room</button> 
+        <!-- runs the same as the delete function but takes more things -->
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AddRoomService } from '../add-room.service';
 import { FormsModule } from '@angular/forms';
+import { UpdateRoomService } from '../update-room.service';
 
 @Component({
   selector: 'app-add-room',
@@ -21,7 +22,7 @@ export class AddRoomComponent {
   @Input() status:String = ""
   @Input() createdAt:String = ""
   @Input() updatedAt:String = ""
-
+  
   addRoom(): void {
     this.addRoomService.addRoom(this.roomID, this.instructor, this.eventDetails, this.startTime, this.endTime, this.status, this.createdAt, this.updatedAt).then(response => {
       console.log('Room addition attempted');
