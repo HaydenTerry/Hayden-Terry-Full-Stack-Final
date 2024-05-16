@@ -8,9 +8,9 @@ export class deleteRoomService {
   constructor() { }
 
   deleteRoom(bookingID: String): Promise<Response> {
-    const url = `http://localhost:3000/deleteRoom/${bookingID}`; // Adjust the port and path if needed
+    const url = `http://localhost:3000/deleteRoom/${bookingID}`; //the route to delete rooms
     return fetch(url, {
-      method: 'GET', // Since your Express route uses GET, though DELETE is more appropriate for deletions
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },
